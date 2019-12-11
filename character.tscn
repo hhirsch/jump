@@ -1,22 +1,33 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://graphics/character.png" type="Texture" id=1]
 [ext_resource path="res://character.gd" type="Script" id=2]
 [ext_resource path="res://graphics/spear.png" type="Texture" id=3]
 [ext_resource path="res://spear.gd" type="Script" id=4]
 
-[node name="character" type="Sprite"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.5406, 3.05554 )
+
+[node name="Player Character" type="Node"]
+
+[node name="character" type="Sprite" parent="."]
 position = Vector2( 103.595, 575.395 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="spear" type="Sprite" parent="."]
+[node name="spear" type="Sprite" parent="character"]
 position = Vector2( 0.0790482, 6.03125 )
 z_index = -1
 texture = ExtResource( 3 )
 centered = false
 script = ExtResource( 4 )
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="spear"]
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="character/spear"]
 position = Vector2( -0.0790482, -6.03125 )
-[connection signal="screen_exited" from="spear/VisibilityNotifier2D" to="spear" method="_on_VisibilityNotifier2D_screen_exited"]
+
+[node name="Area2D" type="Area2D" parent="character/spear"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="character/spear/Area2D"]
+position = Vector2( 20.5603, 3.16309 )
+shape = SubResource( 1 )
+[connection signal="screen_exited" from="character/spear/VisibilityNotifier2D" to="character/spear" method="_on_VisibilityNotifier2D_screen_exited"]

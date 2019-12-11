@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://zombie.tscn" type="PackedScene" id=2]
 
-[node name="Game Scene" type="Node2D"]
+[node name="game" type="Node2D"]
 
 [node name="character" parent="." instance=ExtResource( 1 )]
 
@@ -12,3 +13,5 @@ margin_top = 424.0
 margin_right = 396.0
 margin_bottom = 504.0
 text = "D-Pad to move, right analogue stick to aim. Right trigger to shoot."
+
+[node name="zombie" parent="." instance=ExtResource( 2 )]
