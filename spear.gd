@@ -18,6 +18,11 @@ func _process(delta):
 	if Input.get_connected_joypads().size() > 0:
 		gamepad = gamepads[Input.get_connected_joypads().size() -1]
 	var direction = Vector2(Input.get_joy_axis(gamepad, JOY_ANALOG_RX), Input.get_joy_axis(gamepad, JOY_ANALOG_RY))
+	var character = get_tree().get_root().get_node("./game/character/character")
+	if direction.x > 0:
+		character.set_flip_h(false)
+	if direction.x < 0:
+		character.set_flip_h(true)		
 	if !spearThrown:
 		var angle = direction.angle()
 		rotation = angle
