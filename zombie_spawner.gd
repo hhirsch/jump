@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var zombie = preload("res://zombie.tscn")
 var timer = null
@@ -18,5 +18,5 @@ func spawn_zombie():
 	var zombieNode = zombie.instance()
 	zombieNode.set_name("spawned_zombie_" + str(zombieCount))
 	zombieCount += 1
-	zombieNode.get_node("zombie").position = Vector2(10,575)
+	zombieNode.get_node("zombie").position = position
 	add_child(zombieNode)
