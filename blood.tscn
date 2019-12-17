@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://blood.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=2]
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.0515086, 0.786 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+trail_divisor = 11
+trail_size_modifier = SubResource( 5 )
+trail_color_modifier = SubResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 15.81
+flag_disable_z = true
+spread = 164.58
+gravity = Vector3( 0, 20, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 15.4
+scale = 4.0
+color = Color( 1, 0.0352941, 0.0352941, 1 )
+
+[node name="blood" type="Particles2D"]
+amount = 23
+lifetime = 3.0
+speed_scale = 12.59
+explosiveness = 0.45
+process_material = SubResource( 1 )
+script = ExtResource( 1 )
