@@ -4,7 +4,7 @@ func _ready():
 	var timer = Timer.new()
 	add_child(timer)
 	timer.connect("timeout", self, "delete")
-	timer.set_wait_time(1.0)
+	timer.set_wait_time(0.25)
 	timer.set_one_shot(true)
 	timer.start()
 	pass
