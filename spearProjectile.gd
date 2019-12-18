@@ -13,7 +13,6 @@ func reset():
 	var character = get_node("./../character/")
 	character.get_node("spear").visible = true
 	spearThrown = false
-	#position = Vector2(0, 10)
 	disarm()
 
 func arm():

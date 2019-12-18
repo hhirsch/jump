@@ -12,7 +12,7 @@ extents = Vector2( 27.5406, 3.05554 )
 [node name="Player Character" type="Node"]
 
 [node name="spearProjectile" type="Sprite" parent="."]
-position = Vector2( 102.976, 587.711 )
+position = Vector2( 490.685, 587.711 )
 scale = Vector2( 1, 0.999992 )
 z_index = -1
 texture = ExtResource( 1 )
@@ -29,9 +29,14 @@ position = Vector2( 20.5603, 3.16309 )
 shape = SubResource( 1 )
 
 [node name="character" type="Sprite" parent="."]
-position = Vector2( 103.595, 575.395 )
+position = Vector2( 491.304, 575.395 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="character"]
+position = Vector2( -489.516, -573.657 )
+anchor_mode = 0
+current = true
 
 [node name="spear" type="Sprite" parent="character"]
 position = Vector2( -0.619286, 12.3163 )
