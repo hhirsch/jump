@@ -8,7 +8,7 @@ func _ready():
 	timer = Timer.new()
 	add_child(timer)
 	timer.connect("timeout", self, "spawn_zombie")
-	timer.set_wait_time(1.0)
+	timer.set_wait_time(5.0)
 	timer.set_one_shot(false) # Make sure it loops
 	timer.start()
 

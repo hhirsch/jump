@@ -10,7 +10,7 @@ func _on_Area2D_area_entered(area):
 		var zombie = get_node("./../../")
 		zombie.hide()
 		var spear = get_tree().get_root().get_node("./game/character/spearProjectile")
-		var cookie = get_tree().get_root().get_node("./game/cookies")
+		var cookie = get_tree().get_root().get_node("./game/hud/cookies")
 		cookie.increase(1)
 		spear.reset()
 		var bloodNode = blood.instance()
