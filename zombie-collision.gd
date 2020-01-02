@@ -1,6 +1,6 @@
 extends CollisionShape2D
 var cookieCount
-var blood = preload("res://blood.tscn")
+var health = 10
 func _ready():
 	cookieCount = 0
 	pass
@@ -8,14 +8,16 @@ func _ready():
 func _on_Area2D_area_entered(area):
 	if area.get_node("./../").name == "spearProjectile":
 		var zombie = get_node("./../../")
-		zombie.hide()
+		if health < 0:
+			zombie.hide()
 		var spear = get_tree().get_root().get_node("./game/character/spearProjectile")
 		var cookie = get_tree().get_root().get_node("./game/hud/cookies")
 		cookie.increase(1)
 		spear.reset()
-		var bloodNode = blood.instance()
-		bloodNode.set_name("blood")
-		bloodNode.position = zombie.position
-		get_tree().get_root().add_child(bloodNode)
-		zombie.queue_free()
+		zombie.bleed()
+		if health < 0:
+			zombie.queue_free()
+		else:
+			health -= 5
+			zombie.push_back()
 		pass
