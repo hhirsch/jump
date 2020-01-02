@@ -17,7 +17,15 @@ extents = Vector2( 27.5406, 3.05554 )
 [node name="health" type="Node" parent="hud"]
 
 [node name="heart" type="Sprite" parent="hud/health"]
-position = Vector2( 965.685, 164.771 )
+position = Vector2( 860, 20 )
+texture = ExtResource( 1 )
+
+[node name="heart1" type="Sprite" parent="hud/health"]
+position = Vector2( 920, 20 )
+texture = ExtResource( 1 )
+
+[node name="heart2" type="Sprite" parent="hud/health"]
+position = Vector2( 980, 20 )
 texture = ExtResource( 1 )
 
 [node name="spearProjectile" type="Sprite" parent="."]

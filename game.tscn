@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://cookies.gd" type="Script" id=1]
-[ext_resource path="res://character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://graphics/dirt-block.png" type="Texture" id=3]
-[ext_resource path="res://zombie_spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://instructions.gd" type="Script" id=2]
+[ext_resource path="res://character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graphics/dirt-block.png" type="Texture" id=4]
+[ext_resource path="res://zombie_spawner.tscn" type="PackedScene" id=5]
 
 [node name="game" type="Node2D"]
 
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="cookies" type="RichTextLabel" parent="hud"]
-margin_left = 658.454
-margin_top = 135.825
-margin_right = 731.453
-margin_bottom = 175.825
+margin_left = 1.16766
+margin_top = 1.86083
+margin_right = 74.1674
+margin_bottom = 41.8608
 text = "Cookies:"
 script = ExtResource( 1 )
 
@@ -24,13 +25,15 @@ margin_bottom = 40.0
 text = "0"
 
 [node name="instructions" type="RichTextLabel" parent="hud"]
-margin_left = 38.8705
-margin_top = 136.699
-margin_right = 367.87
-margin_bottom = 216.699
+margin_left = 2.33569
+margin_top = 570.014
+margin_right = 331.336
+margin_bottom = 650.014
+size_flags_stretch_ratio = 1.01
 text = "You need a gamepad to play. D-Pad to move, right analogue stick to aim. Right trigger to shoot."
+script = ExtResource( 2 )
 
-[node name="character" parent="." instance=ExtResource( 2 )]
+[node name="character" parent="." instance=ExtResource( 3 )]
 
 [node name="ground" type="TextureRect" parent="."]
 margin_left = -1744.45
@@ -39,11 +42,11 @@ margin_right = 2714.55
 margin_bottom = 746.565
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 stretch_mode = 2
 
-[node name="zombie_spawner_left" parent="." instance=ExtResource( 4 )]
+[node name="zombie_spawner_left" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1000, 575 )
 
-[node name="zombie_spawner_right" parent="." instance=ExtResource( 4 )]
+[node name="zombie_spawner_right" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2000, 575 )
