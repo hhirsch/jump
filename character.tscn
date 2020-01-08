@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://graphics/heart.png" type="Texture" id=1]
 [ext_resource path="res://graphics/spear.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.5406, 3.05554 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.59433, 23.4587 )
 
 [node name="Player Character" type="Node"]
 
@@ -49,6 +52,12 @@ shape = SubResource( 1 )
 position = Vector2( 491.304, 575.395 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
+
+[node name="bodyArea" type="Area2D" parent="character"]
+
+[node name="characterCollisionShape" type="CollisionShape2D" parent="character/bodyArea"]
+position = Vector2( -0.44873, -0.179504 )
+shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="character"]
 position = Vector2( -492.531, -462.113 )
