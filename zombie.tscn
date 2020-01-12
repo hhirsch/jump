@@ -22,3 +22,4 @@ position = Vector2( -0.611435, 26.1228 )
 shape = SubResource( 1 )
 script = ExtResource( 3 )
 [connection signal="area_entered" from="zombie/Area2D" to="zombie/Area2D/ZombieCollisionShape" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="zombie/Area2D" to="zombie/Area2D/ZombieCollisionShape" method="_on_Area2D_area_exited"]

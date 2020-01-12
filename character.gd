@@ -1,4 +1,4 @@
-extends Sprite
+extends "res://actor_sprite.gd"
 var MOVE_SPEED = 100
 var health = 100
 
@@ -21,3 +21,10 @@ func updateHearts():
 		healthHud.get_node("heart1").visible = false
 	if health <= 66:
 		healthHud.get_node("heart2").visible = false	
+		
+	if health >= 0:
+		healthHud.get_node("heart").visible = true
+	if health >= 33:
+		healthHud.get_node("heart1").visible = true
+	if health >= 66:
+		healthHud.get_node("heart2").visible = true	

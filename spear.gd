@@ -1,8 +1,5 @@
 extends Sprite
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var spearThrown = false
 var spearVector
 func _ready():

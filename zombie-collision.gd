@@ -23,8 +23,12 @@ func _on_Area2D_area_entered(area):
 			zombie.push_back()
 		pass
 	if area.name == "bodyArea" and zombie.attack:
-		print("coolided")
 		var character = area.get_node("./../")
 		character.health -= 5
 		print(character.health)
 		character.updateHearts()
+		character.push_back()
+		character.bleed()
+
+func _on_Area2D_area_exited(area):
+	pass # Replace with function body.
