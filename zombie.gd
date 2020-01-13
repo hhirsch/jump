@@ -1,6 +1,7 @@
 extends "res://actor_sprite.gd"
 var speed = 10
 var attack = false
+var health = 10
 
 func _process(delta):
 	var character = get_tree().get_root().get_node("./game/character/character")

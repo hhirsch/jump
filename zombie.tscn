@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://graphics/zombie.png" type="Texture" id=1]
 [ext_resource path="res://zombie.gd" type="Script" id=2]
-[ext_resource path="res://zombie-collision.gd" type="Script" id=3]
+[ext_resource path="res://zombie_head_collision.gd" type="Script" id=3]
+[ext_resource path="res://zombie-collision.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 12.4736
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.4365, 27.4564 )
+extents = Vector2( 12.4365, 15.7269 )
 
 [node name="zombie" type="Node"]
 
@@ -14,12 +18,21 @@ position = Vector2( 66.7218, 575.254 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
+[node name="head_area" type="Area2D" parent="zombie"]
+
+[node name="ZombieHeadCollisionShape" type="CollisionShape2D" parent="zombie/head_area"]
+position = Vector2( -1.35709, -15.8955 )
+shape = SubResource( 2 )
+script = ExtResource( 3 )
+
 [node name="Area2D" type="Area2D" parent="zombie"]
 position = Vector2( 0.804375, -24.5413 )
 
 [node name="ZombieCollisionShape" type="CollisionShape2D" parent="zombie/Area2D"]
-position = Vector2( -0.611435, 26.1228 )
+position = Vector2( -0.0710907, 33.6879 )
 shape = SubResource( 1 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
+[connection signal="area_entered" from="zombie/head_area" to="zombie/head_area/ZombieHeadCollisionShape" method="_on_head_area_area_entered"]
 [connection signal="area_entered" from="zombie/Area2D" to="zombie/Area2D/ZombieCollisionShape" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="zombie/Area2D" to="zombie/head_area/ZombieHeadCollisionShape" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="zombie/Area2D" to="zombie/Area2D/ZombieCollisionShape" method="_on_Area2D_area_exited"]
