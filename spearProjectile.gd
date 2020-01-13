@@ -1,9 +1,7 @@
 extends Sprite
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var spearThrown = false
+var spearAvailable = true
 var spearVector
 func _ready():
 	reset()
@@ -13,7 +11,17 @@ func reset():
 	var character = get_node("./../character/")
 	character.get_node("spear").visible = true
 	spearThrown = false
+	spearAvailable = false
 	disarm()
+	var timer = Timer.new()
+	add_child(timer)
+	timer.connect("timeout", self, "make_spear_available")
+	timer.set_wait_time(1)
+	timer.set_one_shot(true)
+	timer.start()
+
+func make_spear_available():
+	spearAvailable = true
 
 func arm():
 	var collisionShape = get_node("Area2D/CollisionShape2D")
@@ -41,7 +49,7 @@ func _process(delta):
 		character.get_node("spear").visible = false
 		position += spearVector * 10
 		visible = true
-	if (Input.is_action_pressed("ui_shoot") && !spearThrown): 
+	if (Input.is_action_pressed("ui_shoot") && !spearThrown && spearAvailable): 
 		position = character.position + Vector2(0, 10)
 		spearThrown = true
 		spearVector = direction
