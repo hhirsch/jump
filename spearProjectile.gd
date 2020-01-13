@@ -21,6 +21,8 @@ func reset():
 
 func make_spear_available():
 	spearAvailable = true
+	var character = get_node("./../character/")
+	character.get_node("spear").visible = false
 
 func arm():
 	var collisionShape = get_node("Area2D/CollisionShape2D")
@@ -48,7 +50,7 @@ func _process(delta):
 		visible = false
 	if spearThrown:
 		character.get_node("spear").visible = false
-		position += spearVector * delta * 600
+		position += spearVector.normalized() * delta * 600
 		visible = true
 	if !spearAvailable or spearThrown:
 		character.get_node("spear").visible = false
