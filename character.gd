@@ -11,6 +11,7 @@ func _process(delta):
 		position.x += MOVE_SPEED * delta
 	if Input.is_action_pressed("ui_left"): 
 		position.x -= MOVE_SPEED * delta
+	updateHearts()
 	pass
 
 func updateHearts():
