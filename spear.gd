@@ -8,6 +8,7 @@ func _ready():
 
 func reset():
 	spearThrown = false
+	visible = false
 	position = Vector2(0, 10)
 	disarm()
 
@@ -26,7 +27,10 @@ func _process(delta):
 	var gamepad = 0
 	if Input.get_connected_joypads().size() > 0:
 		gamepad = gamepads[Input.get_connected_joypads().size() -1]
-	var direction = Vector2(Input.get_joy_axis(gamepad, JOY_ANALOG_RX), Input.get_joy_axis(gamepad, JOY_ANALOG_RY))
+	var x = round(Input.get_joy_axis(gamepad, JOY_ANALOG_RX)*100) / 100
+	var y = round(Input.get_joy_axis(gamepad, JOY_ANALOG_RY)*100) / 100
+	var direction = Vector2(x, y)
+	
 	var character = get_node("./../")
 	if direction.x > 0:
 		character.set_flip_h(false)
