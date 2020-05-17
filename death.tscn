@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://graphics/you-died.png" type="Texture" id=1]
+
+[node name="game-over-screen" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1033.0
+margin_bottom = 602.0
+color = Color( 0.464844, 0.177948, 0.177948, 0.392157 )
+
+[node name="you-died" type="Sprite" parent="."]
+position = Vector2( 541.472, 288.554 )
+texture = ExtResource( 1 )

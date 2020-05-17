@@ -25,3 +25,5 @@ func attack():
 	character.push_back()
 	character.bleed()
 	character.health -= 5
+	if character.health < 0:
+		character.health = 0
