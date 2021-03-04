@@ -30,7 +30,6 @@ func _process(delta):
 	var x = round(Input.get_joy_axis(gamepad, JOY_ANALOG_RX)*100) / 100
 	var y = round(Input.get_joy_axis(gamepad, JOY_ANALOG_RY)*100) / 100
 	var direction = Vector2(x, y)
-	
 	var character = get_node("./../")
 	if direction.x > 0:
 		character.set_flip_h(false)

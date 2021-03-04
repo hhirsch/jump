@@ -20,14 +20,12 @@ func _process(delta):
 
 func updateHearts():
 	var gameOverScreen = get_node("./../../hud/game-over-screen")
-	print(gameOverScreen)
 	if !isAlive():
 		gameOverScreen.show()
 	else:
 		gameOverScreen.hide()
 			
 	var healthHud = get_node("./../hud/health")
-	print(health)
 	if health <= 33:
 		healthHud.get_node("heart1").visible = false
 	if health <= 66:
