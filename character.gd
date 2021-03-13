@@ -11,10 +11,11 @@ func isAlive():
 
 func _process(delta):
 	if isAlive():
-		if Input.is_action_pressed("ui_right"): 
-			position.x += MOVE_SPEED * delta
-		if Input.is_action_pressed("ui_left"): 
-			position.x -= MOVE_SPEED * delta
+		var gamepads = Input.get_connected_joypads()
+		var gamepad = 0
+		if Input.get_connected_joypads().size() > 0:
+			gamepad = gamepads[Input.get_connected_joypads().size() -1]
+			position.x += Input.get_joy_axis(gamepad, JOY_ANALOG_LX) * 1.5
 	updateHearts()
 	pass
 
