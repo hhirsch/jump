@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func isAlive():
-    return health > 0;
+	return health > 0;
 
 func _process(delta):
 	if isAlive():

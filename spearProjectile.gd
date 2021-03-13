@@ -1,5 +1,5 @@
 extends Sprite
-
+var math = preload("res://math.gd").new()
 var spearThrown = false
 var spearAvailable = true
 var spearVector
@@ -33,9 +33,6 @@ func disarm():
 	var collisionShape = get_node("Area2D/CollisionShape2D")
 	collisionShape.disabled = true
 	pass	
-
-func getDistance(x, y):
-	return (x*x) + (y*y)
 		
 func _process(delta):
 	var character = get_node("./../character/")
@@ -45,11 +42,11 @@ func _process(delta):
 		gamepad = gamepads[Input.get_connected_joypads().size() -1]
 	var x = round(Input.get_joy_axis(gamepad, JOY_ANALOG_RX)*10) / 10
 	var y = round(Input.get_joy_axis(gamepad, JOY_ANALOG_RY)*10) / 10
-	var distance = getDistance(x, y)
+	var distance = math.get_distance(x, y)
 	if distance < 0.1:
 		x = x*2;
 		y = x*2;
-	distance = getDistance(x, y)
+	distance = math.get_distance(x, y)
 	var direction = Vector2(x, y)
 	
 	if !spearThrown:
